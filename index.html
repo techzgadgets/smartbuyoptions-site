@@ -1,57 +1,267 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SmartBuyOptions - Best Amazon India Deals</title>
-<link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SmartBuyOptions - Handpicked Amazon India Deals</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        .amazon-orange { color: #FF9900; }
+        .bg-amazon-dark { background-color: #232f3e; }
+        
+        .product-card {
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        .product-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+
+        .disclosure-bar {
+            background-color: #f8f9fa;
+            border-bottom: 1px solid #e2e8f0;
+            font-size: 0.75rem;
+            color: #64748b;
+        }
+
+        .deal-badge {
+            background: linear-gradient(45deg, #f43f5e, #e11d48);
+        }
+
+        /* WhatsApp Branding Color */
+        .bg-whatsapp { background-color: #25D366; }
+        .hover\:bg-whatsapp-dark:hover { background-color: #128C7E; }
+
+        .amazon-btn-logo {
+            height: 18px;
+            object-fit: contain;
+            margin-top: 2px;
+        }
+    </style>
 </head>
+<body class="bg-gray-50 text-gray-900">
 
-<body>
+    <!-- Affiliate Disclosure Top Bar -->
+    <div class="disclosure-bar py-2 px-4 text-center">
+        <p>As an Amazon Affiliate Associate, we earn from qualifying purchases at no extra cost to you.</p>
+    </div>
 
-<header>
-    <h1>SmartBuyOptions</h1>
-    <nav>
-        <a href="#">Home</a>
-        <a href="#">Top Deals</a>
-        <a href="#">Contact</a>
+    <!-- Navigation -->
+    <nav class="sticky top-0 w-full z-50 bg-amazon-dark text-white shadow-md">
+        <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold flex items-center gap-2">
+                <span class="text-white">SmartBuy</span><span class="amazon-orange">Options</span>
+            </a>
+            <div class="hidden md:flex space-x-8 items-center text-sm font-medium">
+                <a href="#deals" class="hover:text-orange-400 transition">Latest Deals</a>
+                <a href="#deals" class="hover:text-orange-400 transition">Under ₹999</a>
+                <a href="#deals" class="hover:text-orange-400 transition">Electronics</a>
+                <a href="#contact" class="bg-whatsapp hover:bg-whatsapp-dark px-4 py-2 rounded-lg text-white font-bold transition">Join WhatsApp</a>
+            </div>
+            <button class="md:hidden text-2xl"><i class="fas fa-bars"></i></button>
+        </div>
     </nav>
-</header>
 
-<section class="hero">
-    <h2>🔥 Best Amazon India Deals Today</h2>
-    <p>Handpicked best deals for smart buyers. Save money daily.</p>
-</section>
+    <!-- Hero Section -->
+    <section class="bg-amazon-dark text-white py-12 md:py-20 px-4 border-t border-gray-700">
+        <div class="max-w-5xl mx-auto text-center">
+            <span class="inline-block px-4 py-1 rounded-full bg-orange-500/20 text-orange-400 text-xs font-bold uppercase tracking-widest mb-4">Curated by Experts</span>
+            <h1 class="text-4xl md:text-6xl font-extrabold mb-6">Stop Scrolling. <br><span class="amazon-orange">Start Saving.</span></h1>
+            <p class="text-lg text-gray-300 mb-10 max-w-2xl mx-auto">
+                We filter through thousands of Amazon India deals to find only the highest-rated products at their lowest prices.
+            </p>
+            <div class="flex flex-wrap justify-center gap-4">
+                <a href="#deals" class="px-8 py-4 bg-orange-500 hover:bg-orange-600 rounded-xl font-bold transition shadow-lg shadow-orange-500/20">View Today's Picks</a>
+                <a href="#under-999" class="px-8 py-4 bg-white/10 hover:bg-white/20 rounded-xl font-bold transition backdrop-blur-sm">Deals Under ₹999</a>
+            </div>
+        </div>
+    </section>
 
-<section class="container">
+    <!-- Quick Filters / Categories -->
+    <div class="bg-white border-b border-gray-200 overflow-x-auto whitespace-nowrap scrollbar-hide">
+        <div class="max-w-7xl mx-auto px-4 py-3 flex gap-6 text-sm font-semibold text-gray-600">
+            <a href="#" class="text-orange-500 border-b-2 border-orange-500 pb-1">All Deals</a>
+            <a href="#" class="hover:text-orange-500 transition">Mobiles</a>
+            <a href="#" class="hover:text-orange-500 transition">Laptops</a>
+            <a href="#" class="hover:text-orange-500 transition">Home & Kitchen</a>
+            <a href="#" class="hover:text-orange-500 transition">Under ₹499</a>
+            <a href="#" class="hover:text-orange-500 transition">Fashion</a>
+        </div>
+    </div>
 
-<div class="card">
-    <img src="images/watch.jpg" alt="watch">
-    <h3>Best Smartwatch Under ₹2000</h3>
-    <p>Top rated smartwatch with Bluetooth calling and fitness tracking.</p>
-    <a class="btn" href="#" target="_blank">View on Amazon</a>
-</div>
+    <!-- Deals Grid -->
+    <section id="deals" class="py-12 px-4 max-w-7xl mx-auto">
+        <div class="flex flex-col md:flex-row justify-between items-baseline mb-12 gap-4">
+            <div>
+                <h2 class="text-3xl font-bold text-gray-900">Today's Smart Picks</h2>
+                <p class="text-gray-500 mt-1">Hand-verified deals based on price history and reviews.</p>
+            </div>
+        </div>
+        
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8" id="deals-container">
+            
+            <!-- PRODUCT CARD: Sony Headphones -->
+            <div class="product-card bg-white rounded-2xl overflow-hidden border border-gray-100 flex flex-col shadow-sm">
+                <div class="relative h-60 bg-white p-6 flex items-center justify-center">
+                    <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=500&q=80" alt="Sony Headphones" class="max-w-full max-h-full object-contain mix-blend-multiply">
+                    <div class="absolute top-4 left-4 deal-badge text-white px-3 py-1 rounded-lg text-xs font-bold shadow-md">SAVE ₹4,000</div>
+                    <div class="absolute top-4 right-4 bg-green-100 text-green-700 px-2 py-1 rounded text-[10px] font-bold uppercase">Price Drop</div>
+                </div>
+                <div class="p-5 flex-grow flex flex-col border-t border-gray-50">
+                    <div class="flex justify-between items-center mb-2">
+                        <span class="text-[10px] font-bold text-orange-500 uppercase tracking-wider">Audio</span>
+                        <div class="flex items-center gap-1 text-xs text-yellow-500">
+                            <i class="fas fa-star"></i>
+                            <span class="text-gray-700 font-bold">4.8</span>
+                            <span class="text-gray-400">(12k+)</span>
+                        </div>
+                    </div>
+                    <h3 class="text-md font-bold text-gray-800 mb-2 line-clamp-2 leading-tight">Sony WH-1000XM4 Wireless Noise Cancelling Headphones</h3>
+                    <div class="bg-blue-50 text-blue-700 p-2 rounded-lg text-[11px] mb-4 flex items-start gap-2">
+                        <i class="fas fa-info-circle mt-0.5"></i>
+                        <span><strong>Smart Note:</strong> Highest rated noise cancellation. Better battery than XM5.</span>
+                    </div>
+                    <div class="mt-auto">
+                        <div class="flex items-baseline gap-2 mb-4">
+                            <span class="text-2xl font-bold text-gray-900">₹19,990</span>
+                            <span class="text-sm text-gray-400 line-through">₹24,990</span>
+                        </div>
+                        <a href="#" target="_blank" class="flex items-center justify-center gap-2 py-3 bg-[#FFD814] hover:bg-[#F7CA00] text-black font-bold rounded-xl border border-[#FCD200] transition active:scale-95">
+                            <span>Get Deal on</span>
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg" alt="Amazon.in" class="amazon-btn-logo">
+                        </a>
+                    </div>
+                </div>
+            </div>
 
-<div class="card">
-    <img src="images/headphone.jpg" alt="headphone">
-    <h3>Noise Cancelling Headphones</h3>
-    <p>Premium sound quality with deep bass and long battery.</p>
-    <a class="btn" href="#" target="_blank">Check Deal</a>
-</div>
+            <!-- PRODUCT CARD: Smart Watch -->
+            <div class="product-card bg-white rounded-2xl overflow-hidden border border-gray-100 flex flex-col shadow-sm">
+                <div class="relative h-60 bg-white p-6 flex items-center justify-center">
+                    <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=500&q=80" alt="Smart Watch" class="max-w-full max-h-full object-contain mix-blend-multiply">
+                    <div class="absolute top-4 left-4 deal-badge text-white px-3 py-1 rounded-lg text-xs font-bold shadow-md">60% OFF</div>
+                </div>
+                <div class="p-5 flex-grow flex flex-col border-t border-gray-50">
+                    <div class="flex justify-between items-center mb-2">
+                        <span class="text-[10px] font-bold text-orange-500 uppercase tracking-wider">Electronics</span>
+                        <div class="flex items-center gap-1 text-xs text-yellow-500">
+                            <i class="fas fa-star"></i>
+                            <span class="text-gray-700 font-bold">4.4</span>
+                            <span class="text-gray-400">(8k+)</span>
+                        </div>
+                    </div>
+                    <h3 class="text-md font-bold text-gray-800 mb-2 line-clamp-2 leading-tight">Fastrack FS1 Pro Smartwatch | 1.96" AMOLED Display</h3>
+                    <div class="bg-blue-50 text-blue-700 p-2 rounded-lg text-[11px] mb-4 flex items-start gap-2">
+                        <i class="fas fa-info-circle mt-0.5"></i>
+                        <span><strong>Smart Note:</strong> Great budget AMOLED display. Accurate sleep tracking for the price.</span>
+                    </div>
+                    <div class="mt-auto">
+                        <div class="flex items-baseline gap-2 mb-4">
+                            <span class="text-2xl font-bold text-gray-900">₹2,499</span>
+                            <span class="text-sm text-gray-400 line-through">₹7,995</span>
+                        </div>
+                        <a href="#" target="_blank" class="flex items-center justify-center gap-2 py-3 bg-[#FFD814] hover:bg-[#F7CA00] text-black font-bold rounded-xl border border-[#FCD200] transition active:scale-95">
+                            <span>Get Deal on</span>
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg" alt="Amazon.in" class="amazon-btn-logo">
+                        </a>
+                    </div>
+                </div>
+            </div>
 
-<div class="card">
-    <img src="images/shoes.jpg" alt="shoes">
-    <h3>Best Running Shoes for you</h3>
-    <p>Comfortable and lightweight shoes for daily running.</p>
-    <a class="btn" href="#" target="_blank">Buy Now</a>
-</div>
+            <!-- [COPY START FOR NEW PRODUCTS]
+            <div class="product-card bg-white rounded-2xl overflow-hidden border border-gray-100 flex flex-col shadow-sm">
+                <div class="relative h-60 bg-white p-6 flex items-center justify-center">
+                    <img src="IMAGE_URL_HERE" alt="Product Name" class="max-w-full max-h-full object-contain mix-blend-multiply">
+                    <div class="absolute top-4 left-4 deal-badge text-white px-3 py-1 rounded-lg text-xs font-bold shadow-md">DISCOUNT_TEXT</div>
+                </div>
+                <div class="p-5 flex-grow flex flex-col border-t border-gray-50">
+                    <div class="flex justify-between items-center mb-2">
+                        <span class="text-[10px] font-bold text-orange-500 uppercase tracking-wider">CATEGORY</span>
+                        <div class="flex items-center gap-1 text-xs text-yellow-500">
+                            <i class="fas fa-star"></i>
+                            <span class="text-gray-700 font-bold">RATING</span>
+                            <span class="text-gray-400">(COUNT)</span>
+                        </div>
+                    </div>
+                    <h3 class="text-md font-bold text-gray-800 mb-2 line-clamp-2 leading-tight">PRODUCT_TITLE_HERE</h3>
+                    <div class="bg-blue-50 text-blue-700 p-2 rounded-lg text-[11px] mb-4 flex items-start gap-2">
+                        <i class="fas fa-info-circle mt-0.5"></i>
+                        <span><strong>Smart Note:</strong> WHY_THIS_IS_A_GOOD_DEAL_NOTE</span>
+                    </div>
+                    <div class="mt-auto">
+                        <div class="flex items-baseline gap-2 mb-4">
+                            <span class="text-2xl font-bold text-gray-900">₹PRICE</span>
+                            <span class="text-sm text-gray-400 line-through">₹OLD_PRICE</span>
+                        </div>
+                        <a href="AFFILIATE_LINK_HERE" target="_blank" class="flex items-center justify-center gap-2 py-3 bg-[#FFD814] hover:bg-[#F7CA00] text-black font-bold rounded-xl border border-[#FCD200] transition active:scale-95">
+                            <span>Get Deal on</span>
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg" alt="Amazon.in" class="amazon-btn-logo">
+                        </a>
+                    </div>
+                </div>
+            </div>
+            [COPY END] -->
 
-</section>
+        </div>
+    </section>
 
-<footer>
-<p>© 2026 SmartBuyOptions.com | Affiliate Disclosure: We earn from qualifying purchases</p>
-</footer>
+    <!-- WhatsApp Alert CTA -->
+    <section id="contact" class="py-16 px-4 bg-amazon-dark text-white rounded-t-[3rem]">
+        <div class="max-w-4xl mx-auto text-center">
+            <div class="inline-flex items-center gap-2 bg-whatsapp px-4 py-2 rounded-full mb-6 text-sm font-bold">
+                <i class="fab fa-whatsapp"></i> Join 5,000+ Smart Shoppers
+            </div>
+            <h2 class="text-3xl md:text-4xl font-bold mb-4">Join our WhatsApp Channel</h2>
+            <p class="text-gray-400 mb-10">Get instant alerts for lightning deals and price drops directly on your phone.</p>
+            <a href="#" target="_blank" class="inline-block px-10 py-4 bg-whatsapp hover:bg-whatsapp-dark rounded-2xl font-bold text-lg transition transform hover:scale-105 shadow-xl shadow-whatsapp/20">
+                Join WhatsApp Channel
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 bg-white border-t border-gray-100">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="grid md:grid-cols-3 gap-12 mb-12">
+                <div>
+                    <div class="text-xl font-bold mb-6">SmartBuy<span class="text-orange-500">Options</span></div>
+                    <p class="text-gray-500 text-sm leading-relaxed">
+                        Helping Indian shoppers find the best deals on Amazon without the headache of searching through millions of products.
+                    </p>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-6 uppercase text-xs tracking-widest text-gray-400">Categories</h4>
+                    <ul class="space-y-3 text-sm font-medium text-gray-600">
+                        <li><a href="#" class="hover:text-orange-500 transition">Kitchen & Home</a></li>
+                        <li><a href="#" class="hover:text-orange-500 transition">Mobiles & Tech</a></li>
+                        <li><a href="#" class="hover:text-orange-500 transition">Deals Under ₹999</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-6 uppercase text-xs tracking-widest text-gray-400">Affiliate Disclosure</h4>
+                    <p class="text-gray-400 text-xs leading-relaxed italic">
+                        SmartBuyOptions promotes handpicked products and deals from Amazon India. As an Amazon Affiliate Associate, we earn a commission on qualifying purchases made through our affiliate links, which helps support this site at no extra cost to you.
+                    </p>
+                </div>
+            </div>
+            
+            <div class="pt-8 border-t border-gray-100 flex flex-col md:flex-row justify-between items-center text-gray-400 text-xs gap-4">
+                <div>© 2024 SmartBuyOptions. Verified Deals for India.</div>
+                <div class="flex space-x-6 text-lg">
+                    <a href="#" class="hover:text-blue-600 transition"><i class="fab fa-facebook"></i></a>
+                    <a href="#" class="hover:text-pink-600 transition"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="hover:text-whatsapp transition"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
 
 </body>
 </html>
-
