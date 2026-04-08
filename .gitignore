@@ -1,0 +1,25 @@
+# ── Ignore everything by default ──────────────────────────────
+*
+
+# ── Allow only website content ────────────────────────────────
+!.gitignore
+!index.html
+!style.css
+
+# ── Never allow these (even if un-ignored above) ─────────────
+*.py
+*.pyc
+__pycache__/
+.env
+.env.*
+.venv/
+venv/
+output/
+local_libs/
+scripts/
+*.json
+*.csv
+*.log
+*.sh
+.DS_Store
+Thumbs.db
