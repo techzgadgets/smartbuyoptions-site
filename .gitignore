@@ -5,6 +5,7 @@
 !.gitignore
 !index.html
 !style.css
+!sitemap.xml
 
 # ── Never allow these (even if un-ignored above) ─────────────
 *.py
